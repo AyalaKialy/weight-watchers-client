@@ -1,0 +1,20 @@
+#projects {
+    background-color: rgb(230, 230, 230);
+}
+
+.computer {
+    width: 750px;
+}
+
+.description {
+    font-family: 'arial';
+    color: rgb(59, 59, 59);
+    text-align: left;
+    size: 40px;
+}
+
+#toRepo {
+    border-radius: 10px;
+    background-color: rgb(214, 77, 136);
+    margin: 8px;
+}

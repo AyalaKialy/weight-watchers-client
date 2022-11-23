@@ -1,0 +1,36 @@
+#about {
+    background-color: rgba(255, 255, 255, 0.256);
+}
+
+.skills {
+    width: 80%;
+    margin: auto;
+    text-align: left;
+}
+
+.skills img {
+    height: 90px;
+    margin: 15px;
+    opacity: 1;
+
+}
+
+h1 {
+    font-size: 30px;
+    font-family: 'arial';
+    text-align: center;
+    margin-top: 80px;
+}
+
+h3 {
+    font-size: 20px;
+    font-family: 'Comic Sans MS';
+    text-align: center;
+}
+
+span {
+    line-height: 200%;
+    font-size: large;
+    font-family: 'Comic Sans MS';
+
+}
