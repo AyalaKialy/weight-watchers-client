@@ -34,9 +34,9 @@ export default function MyAppBar() {
                             ABOUT</Button>
                         <Button name='3'
                             sx={{ fontWeight: 'bold', marginRight: 5, fontFamily: 'Arial', my: 2, color: 'white', display: 'block' }}
-                            href='/'
+                            href='/nutritioncoaches'
                         >
-                            CONTACT</Button>
+                            OUR Nutrition Coaches</Button>
                         {error && <h5>Authentication Error</h5>}
                         {!error && isLoading && <h4 style={{ fontFamily: 'arial' }}>Loading..</h4>}
                         {!error && !isLoading && isAuthenticated && <Logout />}
