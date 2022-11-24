@@ -1,6 +1,5 @@
 import '../styles/home.style.css'
 import SignUp from './signUp';
-import Profile from './profile';
 import { useAuth0 } from '@auth0/auth0-react';
 import MyAppBar from './AppBar';
 

@@ -10,12 +10,12 @@ export default function SignUp() {
                 loginWithRedirect({
                     screen_hint: 'signup',
                     appState: {
-                        returnTo: window.location.href = '/signupsteptwo'
+                        returnTo: window.location.href = '/signupguide'
                     }
                 })
             }
         >
-            Sign Up
+            I want to be a nutrition coach
         </button>
     );
 };
