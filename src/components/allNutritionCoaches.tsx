@@ -1,3 +1,4 @@
+import AppBar from './AppBar';
 import { getAllManagers } from "../api/manager.api";
 import { useEffect, useState } from "react";
 import { Manager } from "../models/manager.model";
@@ -13,8 +14,11 @@ export default function NutritionCoaches() {
     }, []);
 
     return (
-        <div style={{ display: 'flex', marginTop: 100 }}>
-            {managers && managers.map((m) => <NutritionCoacheDard {...m as Manager} />)}
+        <div>
+            <AppBar />
+            <div style={{ display: 'flex', marginTop: 100 }}>
+                {managers && managers.map((m) => <NutritionCoacheDard {...m as Manager} />)}
+            </div>
         </div>
     );
 };

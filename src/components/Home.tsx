@@ -1,7 +1,5 @@
 import '../styles/home.style.css'
-import SignUp from './signUp';
-import SignUpForUser from './signUpForUser';
-import Profile from './profile';
+import SignUpForCoach from './signUpForCoach';
 import { useAuth0 } from '@auth0/auth0-react';
 import MyAppBar from './AppBar';
 
@@ -18,8 +16,7 @@ export default function Home() {
                     <pre>Lose the Weight You Want.</pre>
                     <pre>Coaching, community, and food plans made just for you!</pre>
                 </p>
-                {!error && !isLoading && !isAuthenticated && <SignUp />}
-                {!error && !isLoading && !isAuthenticated && <SignUpForUser/> }
+                {!error && !isLoading && !isAuthenticated && <SignUpForCoach />}
             </div>
         </ div>
     );
