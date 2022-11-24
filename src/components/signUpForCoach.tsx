@@ -1,6 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 
-export default function SignUp() {
+export default function SignUpForCoach() {
     const { loginWithRedirect } = useAuth0();
     return (
 
@@ -10,7 +10,7 @@ export default function SignUp() {
                 loginWithRedirect({
                     screen_hint: 'signup',
                     appState: {
-                        returnTo: window.location.href = '/signupguide'
+                        returnTo: window.location.href = '/nutritioncoaches'
                     }
                 })
             }

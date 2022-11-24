@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Profile from './components/profile';
-import SignUpGuide from './components/signUpGuide';
+import SignUpGuide from './components/signUpStepTwoForCoach';
 import NutritionCoaches from './components/allNutritionCoaches'
 import SignUpStepTwoForUser from './components/signUpStepTwoForUser';
 
