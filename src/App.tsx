@@ -3,6 +3,8 @@ import Home from './components/Home';
 import Profile from './components/profile';
 import SignUpGuide from './components/signUpGuide';
 import NutritionCoaches from './components/allNutritionCoaches'
+import SignUpStepTwoForUser from './components/signUpStepTwoForUser';
+
 
 export default function App() {
 
@@ -12,6 +14,7 @@ export default function App() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/signupguide" element={<SignUpGuide />} />
       <Route path="/nutritioncoaches" element={<NutritionCoaches />} />
+      <Route path="/signupsteptwoforuser" element={<SignUpStepTwoForUser />} />
     </Routes>
   );
 }

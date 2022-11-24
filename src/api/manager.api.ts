@@ -15,7 +15,7 @@ export const getAllManagers = async () => {
 //getManagerByEmail
 export const getmanagerByEmail = async (email: string) => {
     try {
-        const manager = await axios.get(`http://localhost:8200/api/manager/getManagerByEmail/${email}`);
+        const manager = await axios.get(`http://localhost:8200/api/manager/getmanagerByEmail/${email}`);
         return manager.data;
     }
     catch (error) {
