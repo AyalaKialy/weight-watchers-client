@@ -1,7 +1,7 @@
 export type Manager = {
-    uid?: string,
-    name?: string;
+    _id?: string,
+    name: string;
     phone: string;
-    email?: string;
+    email: string;
 }
 

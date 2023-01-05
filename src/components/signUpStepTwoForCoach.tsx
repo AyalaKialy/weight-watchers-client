@@ -1,16 +1,13 @@
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import { Button, CssBaseline, Typography, TextField, Grid, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from '@auth0/auth0-react';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { createManager } from '../api/manager.api';
+import { createGroup } from '../api/group.api';
 import { Manager } from '../models/manager.model';
+import { Group } from '../models/group.model';
+import Box from '@mui/material/Box';
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -41,25 +38,29 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function SignUpStepTwo() {
+export default function SignUpGuide() {
     const classes = useStyles();
+    const navigate = useNavigate();
     const { user } = useAuth0();
-    const [name, setName] = useState(user?.name);
+    const [name, setName] = useState(user?.name!);
     const [phone, setPhone] = useState('');
 
     const handleSubmit = async () => {
+        navigate('/');
         const manager: Manager = {
             name: name,
             phone: phone,
-            email: user?.email
+            email: user?.email!
         }
-        try {
-            debugger
-            await createManager(manager);
-        } catch {
-            console.log("create failed");
+        const group: Group = {
+            managerID: '',
+            startDate: new Date(),
+            numberOfParticipants: 0,
+            isActive: true,
         }
-
+        const managerId = await createManager(manager);
+        group.managerID = managerId;
+        await createGroup(group);
     }
     return (
         <Container component='main' maxWidth='sm'>
@@ -71,7 +72,7 @@ export default function SignUpStepTwo() {
                 <Typography className={classes.typography} component='h6' variant='h5'>
                     There are still a few small details to be completed
                 </Typography>
-                <form className={classes.form} onSubmit={handleSubmit}>
+                <Box className={classes.form} component='form' onSubmit={handleSubmit} noValidate>
                     <Grid container spacing={2}>
                         <Grid item xs={12} >
                             <TextField
@@ -98,29 +99,6 @@ export default function SignUpStepTwo() {
                                 onChange={(e) => setPhone(e.target.value)}
                             />
                         </Grid>
-                        {/* <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant='outlined'
-                                required
-                                fullWidth
-                                id='weight'
-                                label='Your Weight'
-                                name='weight'
-                                autoComplete='weight'
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant='outlined'
-                                required
-                                fullWidth
-                                name='heignt'
-                                label='heignt'
-                                type='number'
-                                id='heignt'
-                                autoComplete='Your Heignt'
-                            />
-                        </Grid> */}
                     </Grid>
                     <Button
                         type='submit'
@@ -130,7 +108,7 @@ export default function SignUpStepTwo() {
                     >
                         Sign Up
                     </Button>
-                </form>
+                </Box>
             </div>
         </Container>
     );

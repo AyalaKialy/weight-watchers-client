@@ -26,7 +26,8 @@ export const getmanagerByEmail = async (email: string) => {
 //post 
 export const createManager = async (newManager: Manager) => {
     try {
-        const manager = await axios.post('http://localhost:8200/api/manager/', newManager);
+        const managerId = await axios.post('http://localhost:8200/api/manager/', newManager);
+        return managerId.data;
     }
     catch (error) {
         console.log('error in create manager: ', error);
