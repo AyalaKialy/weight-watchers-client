@@ -4,6 +4,7 @@ import SignUpForUser from './signUpForUser';
 import Profile from './profile';
 import { useAuth0 } from '@auth0/auth0-react';
 import MyAppBar from './AppBar';
+import UploadImage from './uploadImage';
 
 export default function Home() {
     const { isAuthenticated, isLoading, error } = useAuth0();
@@ -11,7 +12,6 @@ export default function Home() {
     return (
         <div id='home' className='box' >
             <MyAppBar />
-
             <div className='text-box'>
                 <p>
                     <pre>Eat What You Love.</pre>
@@ -20,6 +20,8 @@ export default function Home() {
                 </p>
                 {!error && !isLoading && !isAuthenticated && <SignUp />}
                 {!error && !isLoading && !isAuthenticated && <SignUpForUser/> }
+                <UploadImage/>
+
             </div>
         </ div>
     );
