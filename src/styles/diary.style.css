@@ -1,0 +1,12 @@
+#container{
+    background-image: url('../images/img.png');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+.button {
+    margin: 20%;
+}

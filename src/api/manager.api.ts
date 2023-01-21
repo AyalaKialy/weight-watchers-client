@@ -12,6 +12,17 @@ export const getAllManagers = async () => {
     }
 }
 
+//getManagerById
+export const getManagerById = async () => {
+    try {
+        const manager = await axios.get(`http://localhost:8200/api/manager`);
+        return manager.data;
+    }
+    catch (error) {
+        console.log('error in getAllManagers: ', error);
+    }
+}
+
 //getManagerByEmail
 export const getmanagerByEmail = async (email: string) => {
     try {

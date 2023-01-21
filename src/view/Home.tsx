@@ -1,8 +1,10 @@
 import '../styles/home.style.css'
-import SignUpForCoach from './signUpForCoach';
+import SignUpForCoach from '../components/signUpForCoach';
 import { useAuth0 } from '@auth0/auth0-react';
-import MyAppBar from './AppBar';
-import UploadImage from './uploadImage';
+import MyAppBar from '../components/AppBar';
+import SignUpForUser from '../components/signUpForUser';
+import "@progress/kendo-theme-material/dist/all.css";
+import "hammerjs";
 
 export default function Home() {
     const { isAuthenticated, isLoading, error } = useAuth0();
@@ -18,8 +20,6 @@ export default function Home() {
                 </p>
                 {!error && !isLoading && !isAuthenticated && <SignUpForCoach />}                
                 {!error && !isLoading && !isAuthenticated && <SignUpForUser/> }
-                <UploadImage/>
-
 
             </div>
         </ div>

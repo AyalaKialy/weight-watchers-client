@@ -4,7 +4,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Auth0ProviderWithHistory from './components/Auth0ProviderWithNavigate';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { createStore } from 'redux';
+import Reducer from "./redux/reducer";
+import { Provider } from 'react-redux';
 
+const store=createStore(Reducer);
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -12,7 +16,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <Router>
     <Auth0ProviderWithHistory>
-      <App />
+    <Provider store={store}>
+    <App />
+    </Provider>
     </Auth0ProviderWithHistory>
   </Router>
 );

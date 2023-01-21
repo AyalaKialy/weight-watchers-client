@@ -1,8 +1,8 @@
-import AppBar from './AppBar';
+import AppBar from '../components/AppBar';
 import { getAllManagers } from "../api/manager.api";
 import { useEffect, useState } from "react";
 import { Manager } from "../models/manager.model";
-import NutritionCoacheDard from "./nutritionCoacheCard";
+import NutritionCoacheDard from "../components/nutritionCoacheCard";
 
 export default function NutritionCoaches() {
     const [managers, setManagers] = useState([]);

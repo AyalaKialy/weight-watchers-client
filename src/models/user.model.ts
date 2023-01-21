@@ -1,6 +1,6 @@
 export type User = {
     _id?: string,
-    groupId?: string,
+    groupID: any,
     name?: string;
     phone: string;
     email?: string;

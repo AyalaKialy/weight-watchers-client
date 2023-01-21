@@ -26,7 +26,7 @@ useEffect(() => {
         setImageSelect(value);
         
     }
-    
+
     return (
       <form >
         <Button

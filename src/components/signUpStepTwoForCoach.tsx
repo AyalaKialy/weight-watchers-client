@@ -44,13 +44,16 @@ export default function SignUpGuide() {
     const { user } = useAuth0();
     const [name, setName] = useState(user?.name!);
     const [phone, setPhone] = useState('');
+    const [description, setDescription] = useState('');
 
     const handleSubmit = async () => {
         navigate('/');
         const manager: Manager = {
             name: name,
             phone: phone,
-            email: user?.email!
+            email: user?.email!,
+            description: description,
+            numOfMembers: 0
         }
         const group: Group = {
             managerID: '',
@@ -97,6 +100,18 @@ export default function SignUpGuide() {
                                 name='phone'
                                 autoComplete='phone'
                                 onChange={(e) => setPhone(e.target.value)}
+                            />
+                        </Grid>
+                        <Grid item xs={12} >
+                            <TextField
+                                variant='outlined'
+                                required
+                                fullWidth
+                                id='description'
+                                label='description'
+                                name='description'
+                                autoComplete='description'
+                                onChange={(e) => setDescription(e.target.value)}
                             />
                         </Grid>
                     </Grid>
