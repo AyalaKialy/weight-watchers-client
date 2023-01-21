@@ -9,7 +9,7 @@ export default function SignUpForUser() {
                 loginWithRedirect({
                     screen_hint: 'signup',
                     appState: {
-                        returnTo: window.location.href = '/signupsteptwoforuser'
+                        returnTo: window.location.href = '/nutritioncoaches'
                     }
                 })
             }

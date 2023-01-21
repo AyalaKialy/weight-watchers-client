@@ -10,7 +10,7 @@ export default function SignUpForCoach() {
                 loginWithRedirect({
                     screen_hint: 'signup',
                     appState: {
-                        returnTo: window.location.href = '/nutritioncoaches'
+                        returnTo: window.location.href = '/signupCoach'
                     }
                 })
             }

@@ -8,7 +8,19 @@ export const getAllGroups = async () => {
         return groups.data;
     }
     catch (error) {
-        console.log('error in getAllgroups: ', error);
+        console.log('error in getAllGroups: ', error);
+    }
+}
+
+//getGroupIdByManagerId
+export const getGroupByManagerId = async (managerId: any) => {
+    try {
+        const group =  await axios.get(`http://localhost:8200/api/group/${managerId}`); 
+        debugger
+        return group.data;   
+    }
+    catch (error) {
+        console.log('error in getGroupIdByManagerId: ', error);
     }
 }
 
@@ -16,7 +28,7 @@ export const getAllGroups = async () => {
 //post 
 export const createGroup = async (newGroup: Group) => {
     try {
-        const group = await axios.post('http://localhost:8200/api/group/', newGroup);
+         await axios.post('http://localhost:8200/api/group/', newGroup);
     }
     catch (error) {
         console.log('error in createGroup: ', error);

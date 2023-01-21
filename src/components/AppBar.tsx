@@ -22,9 +22,14 @@ export default function MyAppBar() {
                     <Box justifyContent='right' sx={{ padding: 1, flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <Avatar className='Avatar' src={image} sx={{ width: 50, height: 50, marginRight: 1, marginTop: 1 }} />
                         <h4 style={{ color: 'white', fontFamily: 'Comic Sans MS', fontStyle: 'italic', marginRight: 450, marginTop: 20 }}>WEIGHT WATCHERS</h4>
+                        <Button name='0'
+                            sx={{ fontWeight: 'bold', marginRight: 5, fontFamily: 'Arial', my: 2, color: 'white', display: 'block' }}
+                            href='diary'
+                        >
+                            MY DIARY</Button>
                         <Button name='1'
                             sx={{ fontWeight: 'bold', marginRight: 5, fontFamily: 'Arial', my: 2, color: 'white', display: 'block' }}
-                            href='/'
+                            href='userhome'
                         >
                             HOME</Button>
                         <Button name='2'

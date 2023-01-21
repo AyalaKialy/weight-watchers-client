@@ -9,7 +9,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from 'react';
 import { createUser } from '../api/user.api';
 import { User } from '../models/user.model';
-
+import { getGroupByManagerId } from '../api/group.api';
+import { useSelector } from "react-redux"
+import { useNavigate } from 'react-router-dom';
 const useStyles = makeStyles(theme => ({
     '@global': {
         body: {
@@ -40,6 +42,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SignUpStepTwoForUser() {
+    const selector = useSelector(state => state);
+    const navigate = useNavigate();
     const classes = useStyles();
     const { user } = useAuth0();
     const [name, setName] = useState(user?.name);
@@ -48,15 +52,23 @@ export default function SignUpStepTwoForUser() {
     const [weight, setWeight] = useState('0.00');
 
     const handleSubmit = async () => {
-        const newUser: User = {
-            name: name,
-            phone: phone,
-            email: user?.email,
-            height: height,
-            weight: weight,
-        }
+       
         try {
+            
+            const group = await getGroupByManagerId(selector);
+            const newUser: User = {
+                name: name,
+                groupID: group._id,
+                phone: phone,
+                email: user?.email,
+                height: height,
+                weight: weight,
+            }
+            debugger
             await createUser(newUser);
+            debugger
+            navigate('/');
+
         } catch {
             console.log("create failed");
         }
@@ -66,7 +78,7 @@ export default function SignUpStepTwoForUser() {
             <CssBaseline />
             <div className={classes.paper}>
                 <Typography className={classes.typography} component='h4' variant='h4'>
-                    You're almost signed up
+                    You're almost signed up 
                 </Typography>
                 <Typography className={classes.typography} component='h6' variant='h5'>
                     There are still a few small details to be completed

@@ -5,8 +5,25 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import { Manager } from '../models/manager.model';
+import { useDispatch } from "react-redux";
+import { updateManager } from '../api/manager.api';
+import { useNavigate } from 'react-router-dom';
 
 export default function NutritionCoaches(manager: Manager) {
+    const dispatch = useDispatch(); 
+    const navigate = useNavigate();
+    const handleSubmit = async(manager: Manager) =>{
+        const updateAManager: Manager = {
+            name: manager.name,
+            phone: manager.phone,
+            email: manager.email!,
+            description: manager.description,
+            numOfMembers: manager.numOfMembers+1
+        }
+        await updateManager(manager._id, updateAManager);
+        dispatch({ type: "ADD", payload: manager._id });
+        navigate('/signupforgroup');
+    }
     return (
         <div>
             <Card sx={{ width: 380, marginLeft: 5, marginRight: 3, display: 'flex' }}>
@@ -16,15 +33,14 @@ export default function NutritionCoaches(manager: Manager) {
                             {manager.name}
                         </Typography>
                         <Typography variant="subtitle1" color="text.secondary" component="div">
-                            Nutrition coach for 20 years in the field
+                            {manager.description}
                         </Typography>
                     </CardContent>
                     <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
                         <Typography variant="subtitle1" color="text.secondary" component="div">
-                            26 members
+                            {manager.numOfMembers}
                         </Typography>
-                        <Button sx={{ marginLeft: 2, fontFamily: 'Arial', my: 2, color: 'white', backgroundColor: 'rgb(0, 208, 208)' }}
-                            href='signupsteptwoforuser'
+                        <Button onClick={() => handleSubmit(manager)} sx={{ marginLeft: 2, fontFamily: 'Arial', my: 2, color: 'white', backgroundColor: 'rgb(0, 208, 208)' }}
                         >I want to join</Button>
                     </Box>
                 </Box>

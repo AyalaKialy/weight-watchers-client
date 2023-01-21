@@ -1,7 +1,11 @@
 export type Manager = {
-    _id?: string,
+    _id?: any,
     name: string;
     phone: string;
     email: string;
+    description: string;
+    groupID?: string;
+    numOfMembers: number;
+
 }
 
